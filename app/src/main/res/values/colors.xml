@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand palette -->
+    <color name="brand_primary">#3B5BDB</color>
+    <color name="brand_primary_dark">#2742A8</color>
+    <color name="brand_accent">#00BFA6</color>
+
+    <!-- Risk status colors -->
+    <color name="risk_clean">#1FA85A</color>
+    <color name="risk_suspicious">#F5A623</color>
+    <color name="risk_likely">#EF6C00</color>
+    <color name="risk_high">#D32F2F</color>
+
+    <!-- Neutral -->
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+</resources>
