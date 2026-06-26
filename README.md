@@ -1,8 +1,31 @@
 <div align="center">
-
-  <img src="https://github.com/user-attachments/assets/emoticon-eye" width="80" height="80" alt="AuthLens Icon">
+  <div align="center">
+  <img src="https://github.com/user-attachments/assets/0d69a3ef-e604-4a28-ab7c-5e3ee1954020" width="120" height="120" alt="AuthLens Logo"/>
+</div>
 
   # 🔍 AuthLens
+
+## 📱 App Walkthrough & UI Showcase
+
+A sleek, intuitive interface designed for real-time document forensics and instant fraud analysis.
+
+<table width="100%">
+  <tr>
+    <td width="33.33%" align="center">
+      <img src="https://github.com/user-attachments/assets/1ffdc6ed-e799-4926-9b95-d39f5ecfdcb0" width="100%" alt="AuthLens Screen 1"/>
+    </td>
+    <td width="33.33%" align="center">
+      <img src="https://github.com/user-attachments/assets/14a9b75d-c71f-48da-9c27-bdc915ca2af4" width="100%" alt="AuthLens Screen 2"/>
+    </td>
+    <td width="33.33%" align="center">
+      <img src="https://github.com/user-attachments/assets/99d75c2a-6e12-444d-b526-2b0df84519d5" width="100%" alt="AuthLens Screen 3"/>
+    </td>
+  </tr>
+</table>
+
+
+
+
 
   **On-Device Document Fraud Detection for Android**
 
