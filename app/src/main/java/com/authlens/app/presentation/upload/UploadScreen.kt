@@ -1,5 +1,7 @@
 package com.authlens.app.presentation.upload
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.net.Uri
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -53,6 +55,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.core.content.ContextCompat
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
@@ -82,6 +85,25 @@ fun UploadScreen(
     val galleryLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.GetContent(),
     ) { uri: Uri? -> viewModel.onImageSelected(uri) }
+
+    val permissionLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.RequestPermission(),
+    ) { isGranted ->
+        if (isGranted) {
+            capturedImageUri = com.authlens.app.core.utils.ImageFileUtil.newCacheUri(context)
+            cameraLauncher.launch(capturedImageUri)
+        }
+    }
+
+    fun onCameraClick() {
+        val permission = Manifest.permission.CAMERA
+        if (ContextCompat.checkSelfPermission(context, permission) == PackageManager.PERMISSION_GRANTED) {
+            capturedImageUri = com.authlens.app.core.utils.ImageFileUtil.newCacheUri(context)
+            cameraLauncher.launch(capturedImageUri)
+        } else {
+            permissionLauncher.launch(permission)
+        }
+    }
 
     Column(
         modifier = Modifier
@@ -150,11 +172,7 @@ fun UploadScreen(
                 Text("Gallery")
             }
             OutlinedButton(
-                onClick = {
-                    // Create a cache URI for the camera result.
-                    capturedImageUri = com.authlens.app.core.utils.ImageFileUtil.newCacheUri(context)
-                    cameraLauncher.launch(capturedImageUri)
-                },
+                onClick = { onCameraClick() },
                 modifier = Modifier.weight(1f),
             ) {
                 Icon(Icons.Default.PhotoCamera, contentDescription = null)
